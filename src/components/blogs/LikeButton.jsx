@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import handleLike from '../../services/blogs';
 
-const LikeButton = ({ likes }) => {
+function LikeButton({ likes }) {
   const [count, setCount] = useState(likes);
   const handleClick = async (event) => {
     event.preventDefault();
@@ -20,6 +20,6 @@ const LikeButton = ({ likes }) => {
       <button onClick={handleClick} type="button">like this blog</button>
     </div>
   );
-};
+}
 
 export default LikeButton;

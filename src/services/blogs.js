@@ -8,9 +8,15 @@ const setToken = (newToken) => {
   token = `bearer ${newToken}`;
 };
 
-const getAll = async () => {
-  const request = await axios.get(baseUrl);
-  return request.then((response) => response.data);
+const getAll = () => {
+  const request = axios.get(baseUrl);
+  const response = request.then((res) => (res.data)).catch((error) => {
+    console.log(error);
+    return [{
+      id: 1, title: 'test', author: 'yours truly', body: 'This is just a test blog', likes: 1,
+    }];
+  });
+  return response;
 };
 
 const handleLike = async ({ id }) => {

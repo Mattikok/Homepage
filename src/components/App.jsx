@@ -10,6 +10,7 @@ import About from './About';
 import Contact from './Contact';
 import Home from './Home';
 import '../styles/sidebar.css';
+import Bloglist from './blogs/Bloglist';
 
 function App() {
   return (
@@ -25,14 +26,20 @@ function App() {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+          <li>
+            <Link to="/bloglist">Bloglist</Link>
+          </li>
         </ul>
       </nav>
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
-      <div style={{ paddingLeft: '10%', margin: 0, float: 'left' }}>
+      <div style={{ marginLeft: '110px', float: 'left' }}>
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/bloglist">
+            <Bloglist />
           </Route>
           <Route path="/contact">
             <Contact />

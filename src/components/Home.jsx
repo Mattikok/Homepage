@@ -6,7 +6,6 @@ function home(props) {
     <div>
       Please
       <br />
-      {[...Array(200)].map((value, index, array) => (<p>{index}</p>)) }
       select a page
       Lollero
       TOimii
