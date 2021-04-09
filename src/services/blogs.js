@@ -15,22 +15,28 @@ const getAll = () => {
     console.log(error);
     return [{
       id: 1, title: 'test', author: 'yours truly', body: 'This is just a test blog', likes: 5,
+    }, {
+      id: 2, title: 'test2', author: 'yours truly still', body: 'This is just another test blog', likes: 10,
     }];
   });
   return response;
 };
 
 const handleLike = (blog) => {
-  // const config = {
-  //   type: 'like',
-  //   id: blog.id,
-  //   token,
-  // };
-  // const response = await axios.post(baseUrl, config);
-  // return response.data;
-  const ret = blog;
-  ret.likes += 1;
-  return ret;
+  const config = {
+    type: 'like',
+    id: blog.id,
+    token,
+  };
+  const response = axios.post(baseUrl, config);
+  return response
+    .then((res) => res.data)
+    .catch((error) => {
+      console.log(error);
+      const ret = blog;
+      ret.likes += 1;
+      return ret;
+    });
 };
 
 export default { handleLike, getAll, setToken };

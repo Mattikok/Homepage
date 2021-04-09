@@ -5,7 +5,9 @@ function LikeButton({ blog }) {
   const [likes, setLikes] = useState(blog.likes);
   const handleClick = (event) => {
     event.preventDefault();
-    setLikes(blogService.handleLike(blog).likes);
+    blogService.handleLike(blog)
+      .then((res) => setLikes(res.likes))
+      .catch((error) => console.log(error));
   };
   return (
     <div>

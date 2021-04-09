@@ -6,13 +6,12 @@ function Bloglist() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        blogService
-          .getAll()
-          .then((response) => setData(response));
-      } catch (error) {
-        console.log(error);
-      }
+      blogService
+        .getAll()
+        .then((response) => setData(response))
+        .catch((error) => {
+          console.log(error);
+        });
     };
     fetchData();
   }, []);
