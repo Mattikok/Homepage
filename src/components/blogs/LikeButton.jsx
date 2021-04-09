@@ -1,19 +1,18 @@
 import { React, useState } from 'react';
-import handleLike from '../../services/blogs';
+import blogService from '../../services/blogs';
 
-function LikeButton({ likes }) {
-  const [count, setCount] = useState(likes);
-  const handleClick = async (event) => {
+function LikeButton({ blog }) {
+  const [likes, setLikes] = useState(blog.likes);
+  const handleClick = (event) => {
     event.preventDefault();
-    const { amount } = await handleLike();
-    if (amount) { setCount(amount); }
+    setLikes(blogService.handleLike(blog).likes);
   };
   return (
     <div>
       <p>
         This blog has
         {' '}
-        {count}
+        {likes}
         {' '}
         likes
       </p>

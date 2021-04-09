@@ -14,7 +14,7 @@ function Blog({ blog }) {
       <p>
         {blog.body}
       </p>
-      <LikeButton key={blog.id} likes={blog.likes} />
+      <LikeButton key={blog.id} blog={blog} />
     </div>
   );
 }
