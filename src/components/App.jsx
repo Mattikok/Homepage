@@ -27,10 +27,9 @@ function App() {
           </li>
         </ul>
       </nav>
-
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
-      <div style={{ paddingLeft: '10%', margin: 0 }}>
+      <div style={{ paddingLeft: '10%', margin: 0, float: 'left' }}>
         <Switch>
           <Route path="/about">
             <About />
@@ -38,7 +37,7 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>
